@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>ANI INDIA STUDIO — Anime Streaming UI</title>
+<style>
+:root{
+  --bg:#020711; --panel:#071321; --panel2:#0a1829; --line:#1a4a72;
+  --text:#f4f7fb; --muted:#8ea0b6; --red:#ff174d; --blue:#20a4ff;
+  --cyan:#39d9ff; --green:#26d39a; --gold:#ffc83d;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:Inter,system-ui,-apple-system,Segoe UI,Arial,sans-serif;
+  background:radial-gradient(circle at 50% -10%,#0d2843 0,#020711 38%,#01040a 100%);
+  color:var(--text); min-height:100vh;
+}
+a{color:inherit;text-decoration:none}
+.container{width:min(1440px,96%);margin:auto}
+header{
+  min-height:88px;display:flex;align-items:center;justify-content:space-between;
+  gap:24px;border-bottom:1px solid #244968;padding:16px 8px;
+}
+.brand{display:flex;align-items:center;gap:14px}
+.logo{
+  width:54px;height:54px;border:7px solid var(--red);border-right-color:transparent;
+  transform:skew(-15deg);position:relative;
+}
+.logo:after{content:"A";position:absolute;inset:3px;color:#fff;font-weight:900;
+  font-size:25px;transform:skew(15deg)}
+.brand h1{font-size:25px;letter-spacing:.3px}
+.brand h1 span{color:var(--red)}
+.tag{font-size:11px;letter-spacing:3px;color:#d7e0ea;margin-top:3px}
+.topnav{display:flex;gap:18px;align-items:center;color:#d5deea;font-size:13px}
+.globe{font-size:30px}
+.hero{padding:26px 0 18px}
+.hero h2{font-size:38px;margin-bottom:8px}
+.hero p{color:var(--muted);max-width:800px;line-height:1.55}
+.actions{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap}
+button,.btn{
+  border:1px solid #24527b;background:#0b1d31;color:#fff;border-radius:9px;
+  padding:10px 15px;font-weight:700;cursor:pointer
+}
+.primary{background:var(--red);border-color:var(--red)}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;padding:18px 0 40px}
+.card{
+  background:linear-gradient(180deg,#09192a,#06101d);border:1px solid #173e60;
+  border-radius:14px;overflow:hidden;box-shadow:0 10px 35px #0007;
+  transition:.2s transform,.2s border-color
+}
+.card:hover{transform:translateY(-3px);border-color:#2a91d7}
+.poster{aspect-ratio:16/9;background:#102c47;position:relative;overflow:hidden}
+.poster img{width:100%;height:100%;object-fit:cover;display:block}
+.poster .badge{position:absolute;left:9px;top:9px;background:var(--red);
+  padding:4px 7px;border-radius:6px;font-size:10px;font-weight:800}
+.info{padding:12px}
+.title{font-weight:800;font-size:15px}
+.meta{font-size:11px;color:var(--muted);margin-top:5px}
+.rating{color:var(--gold);font-size:12px;margin-top:7px}
+.section-title{font-size:21px;margin:10px 0 4px}
+.tabs{display:flex;gap:8px;margin:12px 0;overflow:auto}
+.tabs button{white-space:nowrap;font-size:11px;padding:8px 12px}
+.tabs .active{background:var(--red);border-color:var(--red)}
+footer{border-top:1px solid #173e60;padding:22px 0;color:var(--muted);font-size:12px}
+@media(max-width:1050px){.grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:760px){
+  header{align-items:flex-start}.topnav{display:none}
+  .hero h2{font-size:29px}.grid{grid-template-columns:repeat(2,1fr);gap:10px}
+}
+@media(max-width:460px){.grid{grid-template-columns:1fr}.brand h1{font-size:19px}}
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+  <a class="brand" href="#">
+    <div class="logo"></div>
+    <div><h1>ANI <span>INDIA</span> STUDIO</h1><div class="tag">WATCH · ENJOY · BEYOND</div></div>
+  </a>
+  <nav class="topnav">
+    <a href="#anime">Anime</a><span>•</span><a href="#movies">Movies</a><span>•</span>
+    <a href="#series">Series</a><span>•</span><a href="#everyone">For Everyone</a>
+    <span class="globe">◎</span>
+  </nav>
+</header>
+
+<section class="hero">
+  <h2>Complete Anime Streaming Experience</h2>
+  <p>Modern dark UI inspired by the supplied ANI INDIA STUDIO reference: home, search, genres,
+     trending, latest episodes, popular anime, watchlist and premium-ready navigation.</p>
+  <div class="actions">
+    <a class="btn primary" href="#trending">▶ Watch Now</a>
+    <a class="btn" href="#mylist">＋ My List</a>
+  </div>
+</section>
+
+<section id="anime">
+  <div class="section-title">Trending Now</div>
+  <div class="tabs">
+    <button class="active" data-filter="all">Today</button>
+    <button data-filter="action">Action</button>
+    <button data-filter="adventure">Adventure</button>
+    <button data-filter="fantasy">Fantasy</button>
+    <button data-filter="romance">Romance</button>
+  </div>
+
+  <div class="grid" id="animeGrid">
+    <article class="card" data-tags="action adventure">
+      <div class="poster">
+        <img src="https://images.unsplash.com/photo-1578632767115-351597cf2477?auto=format&fit=crop&w=900&q=80" alt="Anime artwork">
+        <span class="badge">#1 TRENDING</span>
+      </div>
+      <div class="info"><div class="title">One Piece</div><div class="meta">S12 · Episode 1120 · TV Series</div><div class="rating">★ 9.2</div></div>
+    </article>
+    <article class="card" data-tags="action">
+      <div class="poster">
+        <img src="https://images.unsplash.com/photo-1618336753974-aae8e04506aa?auto=format&fit=crop&w=900&q=80" alt="Anime artwork">
+        <span class="badge">HOT</span>
+      </div>
+      <div class="info"><div class="title">Jujutsu Kaisen</div><div class="meta">S2 · Episode 24 · TV Series</div><div class="rating">★ 9.1</div></div>
+    </article>
+    <article class="card" data-tags="fantasy action">
+      <div class="poster">
+        <img src="https://images.unsplash.com/photo-1541560052-77ec1bbc09f7?auto=format&fit=crop&w=900&q=80" alt="Anime artwork">
+      </div>
+      <div class="info"><div class="title">Solo Leveling</div><div class="meta">S1 · Episode 12 · TV Series</div><div class="rating">★ 9.0</div></div>
+    </article>
+    <article class="card" data-tags="action">
+      <div class="poster">
+        <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=900&q=80" alt="Anime artwork">
+      </div>
+      <div class="info"><div class="title">Demon Slayer</div><div class="meta">S4 · Episode 7 · TV Series</div><div class="rating">★ 9.0</div></div>
+    </article>
+    <article class="card" data-tags="action adventure">
+      <div class="poster">
+        <img src="https://images.unsplash.com/photo-1531259683007-016a7b628fc3?auto=format&fit=crop&w=900&q=80" alt="Anime artwork">
+      </div>
+      <div class="info"><div class="title">Attack on Titan</div><div class="meta">S4 · Episode 87 · TV Series</div><div class="rating">★ 9.0</div></div>
+    </article>
+    <article class="card" data-tags="fantasy romance">
+      <div class="poster">
+        <img src="https://images.unsplash.com/photo-1518709594023-6eab9bab7b23?auto=format&fit=crop&w=900&q=80" alt="Anime artwork">
+      </div>
+      <div class="info"><div class="title">My Hero Academia</div><div class="meta">S7 · Episode 12 · TV Series</div><div class="rating">★ 8.5</div></div>
+    </article>
+    <article class="card" data-tags="adventure">
+      <div class="poster">
+        <img src="https://images.unsplash.com/photo-1538481199705-c710c4e965fc?auto=format&fit=crop&w=900&q=80" alt="Anime artwork">
+      </div>
+      <div class="info"><div class="title">Naruto Shippuden</div><div class="meta">S5 · Episode 247 · TV Series</div><div class="rating">★ 8.7</div></div>
+    </article>
+    <article class="card" data-tags="romance fantasy">
+      <div class="poster">
+        <img src="https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=900&q=80" alt="Anime artwork">
+      </div>
+      <div class="info"><div class="title">Bleach</div><div class="meta">TYBW · Episode 26 · TV Series</div><div class="rating">★ 8.8</div></div>
+    </article>
+  </div>
+</section>
+
+<section id="trending">
+  <div class="section-title">Latest Episodes</div>
+  <div class="grid">
+    <article class="card"><div class="poster"><img src="https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=900&q=80" alt=""></div><div class="info"><div class="title">One Piece — Episode 1120</div><div class="meta">Added 2 hours ago · 24:05</div></div></article>
+    <article class="card"><div class="poster"><img src="https://images.unsplash.com/photo-1579546929518-9e396f3cc809?auto=format&fit=crop&w=900&q=80" alt=""></div><div class="info"><div class="title">Jujutsu Kaisen — Episode 24</div><div class="meta">Added 5 hours ago · 23:41</div></div></article>
+    <article class="card"><div class="poster"><img src="https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=900&q=80" alt=""></div><div class="info"><div class="title">Solo Leveling — Episode 12</div><div class="meta">Added 6 hours ago · 24:12</div></div></article>
+    <article class="card"><div class="poster"><img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80" alt=""></div><div class="info"><div class="title">Demon Slayer — Episode 7</div><div class="meta">Added 8 hours ago · 24:20</div></div></article>
+  </div>
+</section>
+
+<footer>
+  <strong>ANI INDIA STUDIO</strong> · Watch · Enjoy · Beyond &nbsp; | &nbsp;
+  Anime · Movies · Series · 20+ Languages · Global Access
+</footer>
+</div>
+
+<script>
+const tabs=document.querySelectorAll('.tabs button');
+const cards=document.querySelectorAll('#animeGrid .card');
+tabs.forEach(tab=>{
+  tab.addEventListener('click',()=>{
+    tabs.forEach(t=>t.classList.remove('active'));
+    tab.classList.add('active');
+    const f=tab.dataset.filter;
+    cards.forEach(card=>{
+      card.style.display=(f==='all'||card.dataset.tags.includes(f))?'block':'none';
+    });
+  });
+});
+</script>
+</body>
+                                                                                                                                              </html>
